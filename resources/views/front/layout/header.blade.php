@@ -3,19 +3,26 @@
             <p class="text-white fs-5 m-2">Miễn phí vận chuyển</p>
             <i class="fas fa-car-side fs-1 m-2 "></i>
         </div>
-        <div class="logo row d-flex ">
-            <div class="logo_img col-lg-5 col-sm-5  justify-content-start">
-                <img width="200px" class="pl-3" src="/front/img/logoweb.jpg" alt="">
+        <div class="logo row d-flex">
+            <div class="logo_img col-lg-5 col-sm-5 justify-content-start">
+                <img src="/front/img/logoweb.jpg" alt="" width="200px" class="pl-3">
             </div>
-            <div class="search col-log-4 col-sm-5 ">
-                <form class=" d-flex pt-5 ">
-                    <input class="form-control me-2 w-75 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn bg-warning border-success btn-outline-black " type="submit">Search</button>
-                </form>
-            </div>
-            <div class="login col-lg-2 col-sm-2 pt-5 d-flex justify-content-end">
-                <i class="fas fa-user-cog fs-4"></i>
-                <label for="">Đăng nhập</label>
+            <!---product search--->
+            @include('front.layout.search')
+            <div class="login col-lg-3 col-sm-2   row justify-content-end ">
+                <div class="  justify-content-end ">
+                    @if (Auth::check())
+                        <img src="/front/img/avatar/{{ Auth::user()->avatar }}" alt="">
+                        <label>{{ Auth::user()->name }}</label>
+                    @endif
+                    <div class="logout w-100">
+                        <a href="{{ route('login.show') }}">
+                            <p for="">Đăng xuất</p>
+                        </a>
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <div class="icon d-flex justify-content-end">

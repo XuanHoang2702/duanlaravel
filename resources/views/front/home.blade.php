@@ -3,6 +3,7 @@
 @section('title', 'Home')
 @section('body')
     @include('front.layout.slide')
+    
     <div class="content ">
         @include('front.menu')
         @include('front.product_new')

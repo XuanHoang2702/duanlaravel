@@ -8,8 +8,11 @@
                         Sale
                     </div>
                 @endif
-                <img class="w-100" src="/front/img/products/{{ $product_new->productImages[0]->path }}" alt="">
-                <p>{{ $product_new->name }}</p>
+                <a href="{{ route('shop_product', $product_new->id) }}"><img class="w-100"
+                        src="/front/img/products/{{ $product_new->productImages[0]->path }}" alt=""></a>
+                <a href="{{ route('shop_product', $product_new->id) }}">
+                    <h5>{{ $product_new->name }}</h5>
+                </a>
                 <div class="">
                     @if ($product_new->discount != null)
                         <span class="font-weight-normal fs-3 text-danger"> ${{ $product_new->discount }}</span>
@@ -23,7 +26,7 @@
         @endforeach
     </div>
     <div class="page ">
-        
+
         {{ $product_news->appends('trang', 'sanphammoi')->links() }}
     </div>
 </div>

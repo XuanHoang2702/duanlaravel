@@ -9,34 +9,30 @@
             <div class="categories">
                 <h4>Categories</h4>
                 <form action="/action_page.php">
-                    <input class="m-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1"> Man</label><br>
-                    <input class="m-2" type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <label for="vehicle2"> Woman</label><br>
-                    <input class="m-2" type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Kid</label><br><br>
+                    @foreach ($categories as $category)
+                        <input class="m-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1"> {{ $category->name }}</label><br>
+                    @endforeach
                 </form>
             </div>
             <div class="Brand">
                 <h4>Brans</h4>
                 <form action="/action_page.php">
-                    <input class="m-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1"> Chanel</label><br>
-                    <input class="m-2" type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <label for="vehicle2"> Guci</label><br>
-                    <input class="m-2" type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Yody</label><br><br>
+                    @foreach ($brands as $brand)
+                        <input class="m-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1"> {{ $brand->name }}</label><br>
+                    @endforeach
+
                 </form>
             </div>
         </div>
         <div class="product-block col-lg-5">
             <div class="product-detail-image text-center">
-                <img class="w-75 " src="/front/img/products/product-1.jpg" alt="">
+                <img class="w-75 " src="/front/img/products/{{ $product_find->productImages[0]->path }}" alt="">
             </div>
-            <p>dsfdsgfdsgsf</p>
         </div>
         <div class="product-block col-lg-5 ">
-            <h3>Thông tin sản phẩm</h3>
+            <h2>Thông tin sản phẩm</h2>
             <div class="star-icon  mb-3">
                 <i class="fas fa-star" style="color: #ebc610"></i>
                 <i class="fas fa-star" style="color: #ebc610"></i>
@@ -44,12 +40,13 @@
                 <i class="fas fa-star" style="color: #ebc610"></i>
                 <i class="far fa-star" style="color: #ebc610"></i>
             </div>
-            <span> I’m selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to
-                handle. But if you can’t handle me at my worst, then you sure as hell don’t deserve me at my best. ― Marilyn
-                Monroe</span>
+            <div class="product-name ">
+                <h3>{{ $product_find->name }}</h3>
+            </div>
+            <span>{{ $product_find->description }}</span>
             <div class="price mt-4">
-                <span class="font-weight-normal fs-1 text-danger"> $400</span>
-                <span class="price-old fs-5 ">$550</span>
+                <span class="font-weight-normal fs-1 text-danger"> ${{ $product_find->discount }}</span>
+                <span class="price-old fs-5 ">${{ $product_find->price }}</span>
             </div>
             <div class="color mt-2">
                 <span class="ml-3 fs-5 " style="font-weight: bold" for="">Color</span>
@@ -79,46 +76,21 @@
         </div>
         <div class="content ">
             <div class="product_item d-flex justify-content-center flex-wrap">
-                <div class="item bg-light p-2 m-2  text-center w-20">
-                    <img class="w-100" src="/front/img/products/product-1.jpg" alt="">
-                    <p>Sản phẩm 1</p>
-                    <div class="">
-                        <span class="font-weight-normal fs-3 text-danger"> $440</span>
-                        <span class="price-old fs-5">$600</span>
-                    </div>
-                    <button class="bg-danger border-0 rounded ">Đặt hàng </button>
+                @foreach ($product_similars as $product_similar)
+                    <div class="item bg-light p-2 m-2  text-center w-20">
+                        <a href="{{ route('shop_product', $product_similar->id) }}"><img class="w-100"
+                                src="/front/img/products/{{ $product_similar->productImages[0]->path }}" alt=""></a>
+                        <a href="{{ route('shop_product', $product_similar->id) }}">
+                            <h4>{{ $product_similar->name }}</h4>
+                        </a>
+                        <div class="">
+                            <span class="font-weight-normal fs-3 text-danger"> ${{ $product_similar->discount }}</span>
+                            <span class="price-old fs-5">${{ $product_similar->price }}</span>
+                        </div>
+                        <button class="bg-danger border-0 rounded ">Đặt hàng </button>
 
-                </div>
-                <div class="item bg-light p-2 m-2  text-center w-20">
-                    <img class="w-100" src="/front/img/products/product-1.jpg" alt="">
-                    <p>Sản phẩm 1</p>
-                    <div class="">
-                        <span class="font-weight-normal fs-3 text-danger"> $440</span>
-                        <span class="price-old fs-5">$600</span>
                     </div>
-                    <button class="bg-danger border-0 rounded ">Đặt hàng </button>
-
-                </div>
-                <div class="item bg-light p-2 m-2  text-center w-20">
-                    <img class="w-100" src="/front/img/products/product-1.jpg" alt="">
-                    <p>Sản phẩm 1</p>
-                    <div class="">
-                        <span class="font-weight-normal fs-3 text-danger"> $440</span>
-                        <span class="price-old fs-5">$600</span>
-                    </div>
-                    <button class="bg-danger border-0 rounded ">Đặt hàng </button>
-
-                </div>
-                <div class="item bg-light p-2 m-2  text-center w-20">
-                    <img class="w-100" src="/front/img/products/product-1.jpg" alt="">
-                    <p>Sản phẩm 1</p>
-                    <div class="">
-                        <span class="font-weight-normal fs-3 text-danger"> $440</span>
-                        <span class="price-old fs-5">$600</span>
-                    </div>
-                    <button class="bg-danger border-0 rounded ">Đặt hàng </button>
-
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -8,8 +8,11 @@
                         Sale
                     </div>
                 @endif
-                <img class="w-100" src="/front/img/products/{{ $menProduct->productImages[0]->path }}" alt="">
-                <p>{{ $menProduct->name }}</p>
+                <a href="{{ route('shop_product', $menProduct->id) }}"><img class="w-100"
+                        src="/front/img/products/{{ $menProduct->productImages[0]->path }}" alt=""></a>
+                <a href="{{ route('shop_product', $menProduct->id) }}">
+                    <h5>{{ $menProduct->name }}</h5>
+                </a>
                 <div class="">
                     @if ($menProduct->discount != null)
                         <span class="font-weight-normal fs-3 text-danger"> ${{ $menProduct->discount }}</span>

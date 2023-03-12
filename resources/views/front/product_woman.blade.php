@@ -8,8 +8,11 @@
                         Sale
                     </div>
                 @endif
-                <img class="w-100" src="/front/img/products/{{ $womenProduct->productImages[0]->path }}" alt="">
-                <p>{{ $womenProduct->name }}</p>
+                <a href="{{ route('shop_product', $womenProduct->id) }}"><img class="w-100"
+                        src="/front/img/products/{{ $womenProduct->productImages[0]->path }}" alt=""></a>
+                <a href="{{ route('shop_product', $womenProduct->id) }}">
+                    <h5>{{ $womenProduct->name }}</h5>
+                </a>
                 <p>${{ $womenProduct->price }}</p>
                 <button class="bg-danger border-0 rounded ">Xem ngay </button>
             </div>

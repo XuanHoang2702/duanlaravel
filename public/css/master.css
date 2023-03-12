@@ -1,0 +1,50 @@
+img:hover {
+    opacity: 0.5;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+.sale {
+    position: relative;
+    top: 25px;
+    left: 0;
+}
+
+.sale i {
+    color: rgb(204, 29, 61);
+}
+
+.price-old {
+    text-decoration: line-through;
+}
+
+.page nav ul {
+    justify-content: center;
+}
+
+.contact-content label {
+    margin-top: 20px;
+    font-weight: bold
+}
+
+.contact-content textarea {
+    height: 150px;
+}
+.login img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+a {
+    text-decoration: none;
+    color: black;
+}

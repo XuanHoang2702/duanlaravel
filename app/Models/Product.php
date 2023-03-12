@@ -11,7 +11,9 @@ class Product extends Model
     protected $table = 'products';
     protected  $primarykey = 'id';
     protected $guarded = [];
-
+    protected $fillable = [
+        'name', 'description', 'content', 'price', 'qty', 'discount', 'weight', 'sku', 'featured', 'tag', 'brand_id', 'product_category_id'
+    ];
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id', 'id');
