@@ -5,7 +5,7 @@
     <div class="container" class="border ">
         <div class="cart">
             <div class="cart-body  ">
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     @if ($errors->any())
                         <div class="alert alert-danger text-center">
@@ -48,6 +48,9 @@
                             <label for="" class="">Re-enter new password</label>
                             <input type="password" class="form-control w-50" value="{{ old('password_confirmation') }}"
                                 name="password_confirmation" placeholder="Re-enter new password: ">
+                            @error('password_confirmation')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="description">
                             <label for="" class="">description</label>
